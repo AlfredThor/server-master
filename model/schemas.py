@@ -11,7 +11,7 @@ class AuthBase(BaseModel):
         if v is not None and len(v) > 0:
             if len(v) < 5:
                 raise ValueError('邮箱必须大于五位！')
-            if not MakeTool.check_re(v, 'email'):
+            if not MakeTool().check_re(v, 'email'):
                 raise ValueError('请输入正确的邮箱')
         return v.title()
 
@@ -22,8 +22,9 @@ class AuthBase(BaseModel):
                 raise ValueError('手机号码必须是11位！')
         return v.title()
 
+
 class AuthCreate(AuthBase):
     username: str = None
-    status: int = None
     role: str = None
-    is_manager: int = 0
+    status: int = None
+    is_manager: int = None

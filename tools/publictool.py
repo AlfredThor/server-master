@@ -1,7 +1,9 @@
 import re
 
+
 class MakeTool():
     '''生成'''
+
     def __init__(self):
         pass
 
