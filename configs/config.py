@@ -12,3 +12,7 @@ DBSession.configure(bind=engine, autoflush=False, expire_on_commit=False)
 SessionLocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
 
 app = FastAPI(redoc_url=None)
+
+conf = {
+    'DefaultReturn': {'code': 200, 'message': 'OK!'}
+}

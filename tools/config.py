@@ -10,4 +10,5 @@ def get_db():
         db.close()
 
 async def get_token_header(request: Request, token: str = Header(None)):
-    print(token)
+    print(token,1)
+    print(request.url)
