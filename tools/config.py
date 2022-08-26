@@ -1,6 +1,5 @@
 import jwt
 import datetime
-from jwt import ExpiredSignatureError
 from fastapi import Header, HTTPException, Request
 from configs.config import SessionLocal
 
@@ -14,6 +13,5 @@ def get_db():
 
 
 async def get_token_header(request: Request, token: str = Header(None)):
-    print(token, 1)
-    print(request.url)
-    pass
+    if not token:
+        raise HTTPException(status_code=404, detail='Token为空，去登陆！')
